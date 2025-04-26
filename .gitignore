@@ -1,9 +1,8 @@
 # Ignore everything
 *
 
-# But NOT these files/folders
-!/src/
-!/src/**
-!/requirements.txt
-!/README.md
-!/.gitignore
+# Except these:
+!src/
+!requirements.txt
+!README.md
+!.gitignore
