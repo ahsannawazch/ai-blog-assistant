@@ -1,0 +1,8 @@
+chainlit
+pydantic
+pydantic_ai
+langgraph
+tavily
+langchain-core
+typing-extensions
+dotenv
