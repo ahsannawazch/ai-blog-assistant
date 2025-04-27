@@ -1,9 +1,16 @@
-# Ignore everything
+# Track these specific files
+!/app.py
+!/langgraph_workflow.py
+!/utils/
+!/utils/prompts.py
+!/requirements.txt
+!/.env.sample
+!/Dockerfile
+!/.dockerignore
+
+# Ignore everything else by default
 *
 
-# Except these:
-!src/
-!requirements.txt
-!README.md
+# But do not ignore .gitignore and README.md
 !.gitignore
-!.env.sample
+!README.md

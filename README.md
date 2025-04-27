@@ -1,7 +1,7 @@
 # 🤖 AI Content Writer Bot
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Chainlit](https://img.shields.io/badge/chainlit-latest-orange)](https://github.com/Chainlit/chainlit)
+[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/)
+[![Chainlit](https://img.shields.io/badge/chainlit-0.7.700-orange)](https://github.com/Chainlit/chainlit)
 [![LangGraph](https://img.shields.io/badge/langgraph-latest-green)](https://github.com/langchain-ai/langgraph)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -38,13 +38,15 @@
 
 Before you begin, ensure you have:
 
-- 🐍 Python 3.10 or higher
+- 🐍 Python 3.10.10 or higher
 - 🔑 API keys for:
   - OpenAI
   - Tavily
   - LangSmith (optional)
 
 ### 🛠️ Installation
+
+#### Using Python
 
 1. **Clone the repository**
    ```bash
@@ -63,14 +65,26 @@ Before you begin, ensure you have:
    # Edit .env with your API keys
    ```
 
+#### Using Docker 🐳
+
+1. **Build the Docker image**
+   ```bash
+   docker build -t ai-content-writer .
+   ```
+
+2. **Run with Docker**
+   ```bash
+   docker run -p 8000:8000 --env-file .env ai-content-writer
+   ```
+
 ### 🏃‍♂️ Running the App
 
-Launch the application:
+#### Local Development
 ```bash
-chainlit run app.py
+chainlit run src/app.py --port 8000
 ```
 
-Then open your browser and navigate to the provided URL. That's it! 🎉
+Then open your browser and navigate to `http://localhost:8000`. That's it! 🎉
 
 ## 🎨 Customization
 
