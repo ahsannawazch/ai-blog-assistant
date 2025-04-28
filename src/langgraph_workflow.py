@@ -163,16 +163,17 @@ def create_graph():  # rename to something like graph schema or something (maybe
 
 # Our main function
 def main():
-    with tracing_v2_enabled(project_name="content-writer") as cb:
+    #with tracing_v2_enabled(project_name="content-writer") as cb:
         graph = create_graph()
-        initial_state = {
-            "query": "topic: Do Teslas Have Cigarette Lighters."
-        }
-        final_state = graph.invoke(initial_state)
-        for key, value in final_state.items():
-            print(f"node: {key}\n\n  Data: {value}")
-            print("__" * 40)
-        print(f"🔗 LangSmith Trace URL: {cb.get_run_url()}")
+        print(graph.get_graph().draw_mermaid())
+        #initial_state = {
+        #     "query": "topic: Do Teslas Have Cigarette Lighters."
+        # }
+        # final_state = graph.invoke(initial_state)
+        # for key, value in final_state.items():
+        #     print(f"node: {key}\n\n  Data: {value}")
+        #     print("__" * 40)
+        #print(f"🔗 LangSmith Trace URL: {cb.get_run_url()}")
 
 
 
