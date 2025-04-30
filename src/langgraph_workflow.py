@@ -1,7 +1,7 @@
 from pydantic_ai import Agent
 from pydantic import BaseModel
 from pydantic_ai.models.groq import GroqModel
-from utils.prompts import topic_analyst_prompt_v2, get_list_prompt, writer_prompt_v2, intent_classifier_prompt
+from utils.prompts import topic_analyst_prompt_v2, get_list_prompt, writer_prompt_v2, intent_classifier_prompt, editor_prompt
 import os 
 
 from typing import Annotated, List
@@ -14,8 +14,6 @@ from langgraph.types import Send
 from tavily import TavilyClient
 
 from langchain_core.tracers.context import tracing_v2_enabled
-
-from langgraph.checkpoint.memory import MemorySaver
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -39,7 +37,8 @@ class State(TypedDict):            # Rename this later to something like Overall
     questions_list: list
     web_search_result: Annotated[list, add_messages]  
     initial_draft: str
-    chat_record = Annotated[list, add_messages]
+    editor_draft: Annotated[list, add_messages]  
+    ChitChat_history = Annotated[list, add_messages]
     
 
 
@@ -106,7 +105,7 @@ def list_questions(state: State):           # We can later merge this ability in
         user_prompt=unstructured_questions
         )
     total_questions = len(response.output.questions)
-    print("___I think, I got {total_questions}___")
+    print(f"___I think, I got {total_questions}___")
     return {"questions_list": response.output.questions}  # Maybe we have to chnage this too
                                                         # if reviwer/editor asks for more questions
                                                         # we can use annoted list to have these question
@@ -156,13 +155,32 @@ def writer_node(state: State):
         system_prompt=writer_prompt_v2,
         )
     
-    writer_prompt = f"""{query} \n\n Relevant Questions and Answers: {QA_pairs} """
+    prompt = f"""{query} \n\n Relevant Questions and Answers: {QA_pairs} """
 
-    response = writer_agent.run_sync(user_prompt=writer_prompt)
+    response = writer_agent.run_sync(user_prompt=prompt)
     return {"initial_draft": response.output}
 
 def editor_node(state: State):
-    print("This thing has been received by the editor \n Please Empoer me to do something on it.")
+    print("\n__________We are in editor node____________________\n")
+    editor_draft = state['editor_draft']
+    if editor_draft:  # Check if the list is non-empty
+        draft = editor_draft[-1]
+        print(f"Using latest editor draft")
+    else:
+        print("No earlier editing record, using initial_draft")
+        draft = state['initial_draft']    
+
+    
+    editor_agent = Agent(           
+        model=llama_4_model,                # Try Deepseek R1 for better Results (IMO) later
+        system_prompt=editor_prompt,
+        #tools= TavilyClienty,              # IMP: Later add tool/MCP support to fill in gaps to get new info (user can require new facts/info )
+        retries=3
+    )   
+
+    prompt = f'Instruction: Change the tone of the Blog to Gen-z \n Here is the blog: {draft}'
+    response = editor_agent.run_sync(user_prompt= prompt)
+    return {'editor_draft': response.output}
 
 def ChitChat(state: State):
     query = state['query']
@@ -192,10 +210,6 @@ def intent_router(state: State):
 
 
 
-# Memory
-memory = MemorySaver()
-config = {"configurable": {"thread_id": "1"}}
-
 def create_graph():  # rename to something like graph schema or something (maybe not)
     # Nodes
     graph_builder.add_node('intent_classifier', intent_classifier)
@@ -203,7 +217,7 @@ def create_graph():  # rename to something like graph schema or something (maybe
     graph_builder.add_node('list_questions', list_questions)
     graph_builder.add_node('web_search', web_search)
     graph_builder.add_node('writer_node', writer_node)
-    graph_builder.add_node('Editor', writer_node)
+    graph_builder.add_node('Editor', editor_node)
     graph_builder.add_node('ChitChat', ChitChat)
 
 
@@ -234,20 +248,24 @@ def create_graph():  # rename to something like graph schema or something (maybe
     graph_builder.add_edge('ChitChat', END)
 
 
-    return graph_builder.compile(checkpointer=memory)
+    return graph_builder.compile()
+
+
 
 # Our main function
 def main():
     with tracing_v2_enabled(project_name="content-writer") as cb:
         graph = create_graph()
         # print(graph.get_graph().draw_mermaid())
-        initial_state = {
-            "query": "tell me my name again?'?"
-        }
-        final_state = graph.invoke(initial_state, config=config)
-        # for key, value in final_state.items():
-        #     print(f"node: {key}\n\n  Data: {value}")
-        #     print("__" * 40)
+        
+        initial_state = {"query": "I want to edit this blog" }
+
+        final_state = graph.invoke(initial_state)
+        
+        for key, value in final_state.items():
+            print(f"node: {key}\n\n  Data: {value}")
+            print("__" * 40)
+        
         print(f"🔗 LangSmith Trace URL: {cb.get_run_url()}")
 
 
