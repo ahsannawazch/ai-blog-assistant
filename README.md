@@ -32,6 +32,35 @@
 - Traceable and debuggable processes
 - Easy to extend and customize
 
+## 🧩 Additional Features
+
+💬 **Intent Classification**
+- Determines user intent (e.g., content creation, editing, or chat).
+
+🔍 **Topic Analysis**
+- Analyzes user queries to identify the main topic.
+
+❓ **Question Generation**
+- Generates structured questions based on the analyzed topic.
+
+🌐 **Web Search Integration**
+- Performs web searches to gather relevant information for content creation.
+
+📝 **Content Writing**
+- Generates drafts of content (e.g., blogs) using AI models.
+
+✏️ **Content Editing**
+- Refines drafts based on user instructions.
+
+💡 **ChitChat Mode**
+- Engages in conversational interactions with memory for context-aware responses.
+
+🔄 **Graph Workflow**
+- Manages operations using a state graph for seamless transitions between tasks.
+
+🧠 **Memory Integration**
+- Uses `mem0` to store and retrieve memory for enhanced user interactions.
+
 ## 🚀 Quick Start
 
 ### Prerequisites
