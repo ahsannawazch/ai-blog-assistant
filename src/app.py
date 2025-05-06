@@ -2,7 +2,7 @@ import chainlit as cl
 from pydantic_ai import Agent
 from pydantic import BaseModel
 from pydantic_ai.models.groq import GroqModel
-from prompts import topic_analyst_prompt_v2, get_list_prompt, writer_prompt_v2, intent_classifier_prompt, editor_prompt
+from utils.prompts import topic_analyst_prompt_v2, get_list_prompt, writer_prompt_v2, intent_classifier_prompt, editor_prompt
 import os
 from typing import Annotated, List, Dict
 from typing_extensions import TypedDict
