@@ -38,7 +38,7 @@
 - Determines user intent (e.g., content creation, editing, or chat).
 
 🔍 **Topic Analysis**
-- Analyzes user queries to identify the main topic.
+- Analyzes user queries to identify the main topic..
 
 ❓ **Question Generation**
 - Generates structured questions based on the analyzed topic.
