@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# Except these:
+# !requirements.txt
+!README.md
+!.gitignore
+# !.env.sample
+# !Dockerfile
+!prompts.py
+!nodes.py
+!graph.py
+!models.py
+!app.py
