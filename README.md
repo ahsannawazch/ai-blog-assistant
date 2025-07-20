@@ -1,9 +1,6 @@
-# 🤖 AI Content Writer Bot
+this is it
 
-[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/)
-[![Chainlit](https://img.shields.io/badge/chainlit-0.7.700-orange)](https://github.com/Chainlit/chainlit)
-[![LangGraph](https://img.shields.io/badge/langgraph-latest-green)](https://github.com/langchain-ai/langgraph)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 
 > 📝 An intelligent content generation system powered by LLMs that researches, writes, and refines content automatically!
 
