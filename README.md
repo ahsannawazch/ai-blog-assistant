@@ -70,4 +70,3 @@ ai-blog-assistant
 Found a bug or have an idea?  
 - 🐛 [Open an issue](https://github.com/yourusername/ai-blog-assistant/issues)  
 
----
