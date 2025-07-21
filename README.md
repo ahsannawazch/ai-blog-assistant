@@ -9,7 +9,7 @@
 - 🔍 **Real-time Web Research** – fetches up-to-date sources via Tavily  
 - ✍️ **Structured Drafting** – consistent tone and real world info with minimum hallucinations  .
 - 🎯 **Interactive Chat UI** – Thanks to the Chainlit 
-- 💬 **Memory-Backed ChitChat** – context-aware conversations with `mem0`. It is basically a RAG over past conversations.
+- 💬 **Memory-Backed ChitChat** – context-aware conversations with `mem0`. It is basically a RAG over past conversations and provides the ChitChat node with context aware past interactions
 
 ---
 
@@ -36,7 +36,7 @@
 ### Option A – Local Python
 ```bash
 # 1. Clone
-git clone https://github.com/yourusername/ai-blog-assistant.git
+git clone https://github.com/ahsannawazch/content-writer
 cd ai-blog-assistant
 
 # 2. Install
