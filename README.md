@@ -1,5 +1,5 @@
 # 🤖 AI Blog Assistant  
-> An end-to-end LLM-powered research & writing companion that turns any topic into a polished, SEO-ready blog post.
+> An end-to-end LLM-powered research & writing companion that turns any topic into a polished, SEO-ready blog post. It fetches real world data using tavily to use upto date information for the blog. The assistant mimics how  a human content writer would plan, research and execulte a blog post. Each node is assigned a defined role in the workflow to get a coherent blog. 
 
 ---
 
@@ -29,7 +29,9 @@
 
 ### Prerequisites
 - Python ≥ 3.10  
-- API keys: OpenAI, Tavily, LangSmith *(optional)*
+- API keys: Groq (Free for limited usage) 
+- Tavily (Free for limited usage)
+- LangSmith *(optional)*
 
 ### Option A – Local Python
 ```bash
