@@ -60,11 +60,14 @@ def topic_analyzer(state: State):
     print(f'_____________Exiting into Topic Analyser Node______')
     return {"topic_analyzer": response.output}
 
-# Question List Generator
+# Getting all questions related to the topic in a list 
 def list_questions(state: State):
+
     class QuestionList(BaseModel):
         questions: List[str]  
+    
     print("___________Getting structured Questions________")
+    
     list_agent = Agent(
         model=gemma_model,
         output_type=QuestionList,
