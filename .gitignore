@@ -3,7 +3,7 @@
 
 # Except these:
 !README.md
-!.env.sample .env
+!.env.sample
 !workflow/
 !workflow/**
 !prompts.py
