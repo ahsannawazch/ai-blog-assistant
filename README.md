@@ -7,8 +7,8 @@
 
 - 🧠 **Smart Topic Analysis** – automatically decomposes complex topics.  
 - 🔍 **Real-time Web Research** – fetches up-to-date sources via Tavily  
-- ✍️ **Structured Drafting** – consistent tone and real world info with minimum hallucinations  .
-- 🎯 **Interactive Chat UI** – Thanks to the Chainlit 
+- ✍️ **Structured Drafting** – consistent tone and real world info with minimum hallucinations.
+- 🎯 **Interactive Chat UI** – Thanks to the Chainlit for providing a nice UI. 
 - 💬 **Memory-Backed ChitChat** – context-aware conversations with `mem0`. It is basically a RAG over past conversations and provides the ChitChat node with context aware past interactions
 
 ---
