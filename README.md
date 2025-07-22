@@ -23,6 +23,10 @@
 | **Content Writing** | Builds the first draft |
 | **Content Editing** | Refines or rewrites based on your feedback |
 
+### Workflow Diagram
+
+![Workflow Diagram](https://github.com/ahsannawazch/ai-blog-assistant/blob/master/workflow/workflow%20ai%20blog%20assistant.png?raw=true)
+
 ---
 
 ## 🚀 Quick Start
@@ -31,12 +35,13 @@
 - Python ≥ 3.10  
 - API keys: Groq (Free for limited usage) 
 - Tavily (Free for limited usage)
+- Mem0 (Free for limited usage)
 - LangSmith *(optional)*
 
-### Option A – Local Python
+### Run
 ```bash
 # 1. Clone
-git clone https://github.com/ahsannawazch/content-writer
+git clone https://github.com/ahsannawazch/ai-blog-assistant
 cd ai-blog-assistant
 
 # 2. Install
@@ -70,5 +75,6 @@ ai-blog-assistant
 
 ## 🤝 Contributing
 Found a bug or have an idea?  
-- 🐛 [Open an issue](https://github.com/yourusername/ai-blog-assistant/issues)  
+- 🐛 [Open an issue](https://github.com/ahsannawazch/ai-blog-assistant/issues)
+
 
