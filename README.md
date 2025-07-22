@@ -32,7 +32,7 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python ≥ 3.10  
+- Python ≥ 3.12  
 - API keys: Groq (Free for limited usage) 
 - Tavily (Free for limited usage)
 - Mem0 (Free for limited usage)
