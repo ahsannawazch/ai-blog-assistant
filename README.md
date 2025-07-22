@@ -52,26 +52,9 @@ cp .env.sample .env
 # edit .env with your keys
 
 # 4. Run
-chainlit run src/app.py --port 8000
+chainlit run app.py --port 8000
 # open http://localhost:8000
 ```
-
-
-## 📁 Project Layout
-
-```
-ai-blog-assistant
-├── src
-│   ├── app.py                 # Chainlit entry point
-│   ├── langgraph_workflow.py  # State-graph definition
-│   └── utils/
-│       └── prompts.py         # All prompts & templates
-├── requirements.txt
-├── .env.sample
-└── README.md
-```
-
----
 
 ## 🤝 Contributing
 Found a bug or have an idea?  
