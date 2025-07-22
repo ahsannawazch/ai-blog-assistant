@@ -2,11 +2,10 @@
 *
 
 # Except these:
-# !requirements.txt
 !README.md
-!.gitignore
-# !.env.sample
-# !Dockerfile
+!.env.sample .env
+!workflow/
+!workflow/**
 !prompts.py
 !nodes.py
 !graph.py
