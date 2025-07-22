@@ -5,7 +5,7 @@
 
 ## ✨ Features
 
-- 🧠 **Smart Topic Analysis** – automatically decomposes complex topics  
+- 🧠 **Smart Topic Analysis** – automatically decomposes complex topics.  
 - 🔍 **Real-time Web Research** – fetches up-to-date sources via Tavily  
 - ✍️ **Structured Drafting** – consistent tone and real world info with minimum hallucinations  .
 - 🎯 **Interactive Chat UI** – Thanks to the Chainlit 
