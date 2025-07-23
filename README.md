@@ -45,7 +45,8 @@ git clone https://github.com/ahsannawazch/ai-blog-assistant
 cd ai-blog-assistant
 
 # 2. Install
-pip install -r requirements.txt
+pip install poetry
+poetry install
 
 # 3. Configure
 cp .env.sample .env
