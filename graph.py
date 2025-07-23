@@ -36,20 +36,3 @@ def create_graph():
     return graph_builder.compile(checkpointer=memory)
 
 
-        # # Optional: Set session/user ID for isolated memory
-        # # mem0_user_id = "user_123"  # Replace with dynamic ID in production      (Later)
-        
-        # def ()
-        # config = {"configurable": {"agent_id": "agent_47"}}           
-        
-        # initial_state = {"query": "Edit the blog: Can you make the introduction a bit more Gen -z ", "user_id": "ahsan8877", "agent_id": "agent_47"}
-        # # initial_state = {"query": "Give me a blog: 'Does tesla have cigarette lighters?' ", "user_id": "ahsan8877", "agent_id": "agent_47"}
-        
-
-        # final_state = graph.invoke(initial_state, config=config)
-        
-        # for key, value in final_state.items():
-        #     print(f"node: {key}\nData: {value}")
-        #     print("__" * 40)
-        # print(f"🔗 LangSmith Trace URL: {cb.get_run_url()}")
-
