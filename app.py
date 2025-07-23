@@ -26,11 +26,9 @@ def chat_session():
 @cl.on_message
 async def on_message(msg: cl.Message):
     user_query = msg.content
-    # config = {"configurable": {"thread_id": cl.context.session.id}}
-    config = {"configurable": {"thread_id": cl.user_session.get("session_id")}}   # I don't think this is working/needed
-    # config = {"configurable": {"thread_id": "1234"}}
+    config = {"configurable": {"thread_id": cl.user_session.get("session_id")}}   
     print(config)
-
+    
     with tracing_v2_enabled(project_name="content-writer") as cb:
         initial_state = {"query": user_query, "user_id": cl.user_session.get("session_id")}          # user_id related to mem0
 
